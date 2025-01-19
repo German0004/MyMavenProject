@@ -13,30 +13,43 @@
   <artifactId>webapp</artifactId>
   <packaging>war</packaging>
   <name>Webapp</name>
-  <description>Webapp.</description>
+  <description>Web application module.</description>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <build>
     <finalName>${project.artifactId}</finalName>
 
     <plugins>
       <plugin>
-        <groupId>org.mortbay.jetty</groupId>
+        <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
+        <version>11.0.15</version>
+        <configuration>
+          <webAppConfig>
+            <contextPath>/webapp</contextPath>
+          </webAppConfig>
+        </configuration>
       </plugin>
     </plugins>
   </build>
 
   <dependencies>
-
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
